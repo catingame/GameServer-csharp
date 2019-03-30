@@ -1,4 +1,9 @@
+using System;
+using System.Buffers;
+using System.IO.Pipelines;
 using System.Net.Sockets;
+using System.Text;
+using System.Threading.Tasks;
 
 namespace Core.Network
 {
@@ -12,7 +17,7 @@ namespace Core.Network
             _reader = reader;
         }
 
-        public async void Run()
+        public async Task Run()
         {
             while (true)
             {
@@ -60,7 +65,7 @@ namespace Core.Network
             Console.Write($"[{socket.RemoteEndPoint}]: ");
             foreach (var segment in buffer)
             {
-                Console.Write(Encoding.UTF8.GetString(segment));
+                Console.Write(Encoding.UTF8.GetString(segment.Span));
             }
             Console.WriteLine();
         }

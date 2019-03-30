@@ -1,4 +1,7 @@
+using System;
 using System.Net.Sockets;
+using System.IO.Pipelines;
+using System.Threading.Tasks;
 
 namespace Core.Network
 {
@@ -12,7 +15,7 @@ namespace Core.Network
             _writer = writer;
         }
 
-        public async void Run()
+        public async Task Run()
         {
             const int minimumBufferSize = 512;
 
