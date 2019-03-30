@@ -1,7 +1,11 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <ItemGroup>
-    <ProjectReference Include="..\Core\Core.csproj" />
+    <PackageReference Include="CommandLineParser" Version="2.4.3" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\MMOGame\MMOGame.csproj" />
   </ItemGroup>
 
   <PropertyGroup>
