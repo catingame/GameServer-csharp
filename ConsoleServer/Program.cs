@@ -38,18 +38,19 @@ namespace Server
 
             Logger.Write(LogType.Info, "Try to start server.");
 
-            //Server.Start(options.Port).Next(result => {
-            //    if (result.fail)
-            //    {
-            //        // @something
-            //        // @error message
-            //        Logger.WriteLine(LogType.Error, "");
-            //        throw new Exception("");
-            //    }
+            Core.Network.Server.Start(options.Port).Next(result =>
+            {
+                if (result.fail)
+                {
+                    // @something
+                    // @error message
+                    Logger.WriteLine(LogType.Error, "");
+                    throw new Exception("");
+                }
 
-            //    Game.Init();
-            //    Logger.WriteLine(LogType.Info, $"Run Server in port {options.port}");
-            //});
+                Game.Init();
+                Logger.WriteLine(LogType.Info, $"Run Server in port {options.port}");
+            });
         }
 
         private static void HandleErrors(IEnumerable<Error> errors)

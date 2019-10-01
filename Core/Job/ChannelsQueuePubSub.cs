@@ -7,8 +7,8 @@ namespace Core.Job
 {
     public class ChannelsQueuePubSub
     {
-        private ChannelWriter<IJob> _writer;
-        private Dictionary<Type, Action<IJob>> _handlers = new Dictionary<Type, Action<IJob>>();
+        private readonly ChannelWriter<IJob> _writer;
+        private readonly Dictionary<Type, Action<IJob>> _handlers = new Dictionary<Type, Action<IJob>>();
 
         public ChannelsQueuePubSub()
         {

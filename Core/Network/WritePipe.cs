@@ -7,8 +7,8 @@ namespace Core.Network
 {
     internal class WritePipeAsync
     {
-        private Socket _socket;
-        private PipeWriter _writer;
+        private readonly Socket _socket;
+        private readonly PipeWriter _writer;
         public WritePipeAsync(Socket socket, PipeWriter writer)
         {
             _socket = socket;
