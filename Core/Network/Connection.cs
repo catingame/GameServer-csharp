@@ -11,7 +11,7 @@ namespace Core.Network
         Task Start(Int32 port);
     }
 
-    public class Server : IConnection
+    public class Network : IConnection
     {
         public async Task Start(Int32 port)
         {

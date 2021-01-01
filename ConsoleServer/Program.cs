@@ -1,10 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Text;
 using CommandLine;
-using Core;
+using Core.Config;
+using SimpleGame;
 
-namespace Server
+namespace ConsoleServer
 {
     class ConsoleServerOptions
     {
@@ -25,37 +25,36 @@ namespace Server
 
         private static void RunServer(ConsoleServerOptions options)
         {
-            Logger.SetLogger(
-                Logger.GetLoggerFactory()
-                    .UseNLog("NLog.Config")
-                    .Create<Program>()
-            );
+            Console.WriteLine("Try to start server.");
 
-            if (options.Verbose)
-            {
-                Logger.SetLevel(LogType.Info);
-            }
+            var game = new Game();
+            
+            game.Init();
 
-            Logger.Write(LogType.Info, "Try to start server.");
-
-            Core.Network.Server.Start(options.Port).Next(result =>
-            {
-                if (result.fail)
-                {
-                    // @something
-                    // @error message
-                    Logger.WriteLine(LogType.Error, "");
-                    throw new Exception("");
-                }
-
-                Game.Init();
-                Logger.WriteLine(LogType.Info, $"Run Server in port {options.port}");
-            });
+            game.Run();
+            
+            // TODO: Add program exception handler
         }
 
         private static void HandleErrors(IEnumerable<Error> errors)
         {
             Console.WriteLine(errors.ToString());
+        }
+
+        private class ConsoleServerConfig : Config
+        {
+            ConsoleServerOptions _opts;
+
+            public ConsoleServerConfig(ConsoleServerOptions opts)
+            {
+                _opts = opts;
+            }
+
+            protected override void Setup()
+            {
+                Set<Boolean>("LogVerbose", _opts.Verbose);
+                Set<Int32>("Port", _opts.Port);
+            }
         }
     }
 }

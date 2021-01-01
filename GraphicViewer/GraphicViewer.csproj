@@ -1,0 +1,19 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <ItemGroup>
+    <PackageReference Include="OpenTK" Version="4.4.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\Core\Core.csproj" />
+  </ItemGroup>
+  
+  <PropertyGroup>
+    <TargetFramework>netcoreapp3.1</TargetFramework>
+    <AssemblyName>GraphicViewer</AssemblyName>
+    <RootNamespace>GraphicViewer</RootNamespace>
+    <PackageId>GraphicViwer</PackageId>
+    <OutputType>Exe</OutputType>
+  </PropertyGroup>
+
+</Project>
