@@ -1,0 +1,6 @@
+[submodule "Submodules/EQS"]
+	path = Submodules/EQS
+	url = https://github.com/catingame/EQS.git
+[submodule "Submodules/PGB"]
+	path = Submodules/PGB
+	url = https://github.com/catingame/PGB.git
