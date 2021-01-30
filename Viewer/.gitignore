@@ -134,3 +134,5 @@ _NCrunch*
 
 # dependency folder in visual studio
 .vs/
+
+!datas/*.*

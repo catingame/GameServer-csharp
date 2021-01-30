@@ -27,6 +27,9 @@ EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SharpNav", "Submodules\SharpNav\SharpNav\SharpNav.csproj", "{DA123868-1D3C-4A30-9F56-DFC09809371F}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SharpNav.Examples", "Viewer\SharpNav.Examples.csproj", "{BB34F8C4-CE09-44C1-9883-77B4EFBE371F}"
+	ProjectSection(ProjectDependencies) = postProject
+		{DA123868-1D3C-4A30-9F56-DFC09809371F} = {DA123868-1D3C-4A30-9F56-DFC09809371F}
+	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
